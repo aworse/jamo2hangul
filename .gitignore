@@ -1,0 +1,19 @@
+# Python / env
+.venv/
+__pycache__/
+*.pyc
+
+# Large artifacts & data (models go to GitHub Release v2.0, not the repo)
+artifacts/
+models/
+*.pt
+*.bz2
+*.xml
+corpus.txt
+train.txt
+
+# Logs & markers
+*.log
+*.jsonl
+LAUNCHED.txt
+WORD_LAUNCHED.txt
