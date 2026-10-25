@@ -1,5 +1,9 @@
 # jamo2hangul — 자모 → 한글 복원 모델 (v2.0)
 
+> **English summary.** jamo2hangul restores spaced Korean text from a flat stream of jamo (Korean letters), e.g. `ㅎㅏㄴㄱㅡㄹ` → `한글`. It is a character-level encoder–decoder Transformer (~53M parameters; d_model 512, 8 heads, 6+6 layers) trained from scratch on about 2.06M Korean Wikipedia sentences, built for a Korean speech-recognition project. On 8,000 held-out words, the clean model gets 96.70% exactly right (7,736/8,000) with a 1.36% character error rate. A noise-fine-tuned model cuts the character error rate on corrupted input from 32.8% to 14.9%. Model weights are not published yet and are available on request (bagdoeon827@gmail.com).
+>
+> Author: Bugeon Park ([@Bugeon151](https://github.com/Bugeon151); aworse is my second GitHub account).
+
 평평한 호환 자모 스트림(`ㅎㅏㄴㄱㅡㄹ`)을 받아 **띄어쓰기가 포함된 한글**(`한글`)로 복원하는
 char 단위 Transformer seq2seq. 한국어 문장을 자모로 분해해 학습 데이터를 무한 생성하므로 별도
 데이터 없이 학습된다. 입력 자모에 오류가 섞여도 교정하도록 노이즈 주입 파인튜닝 버전을 함께 제공한다.
@@ -34,7 +38,10 @@ char 단위 Transformer seq2seq. 한국어 문장을 자모로 분해해 학습 
 ### 개발셋 (위키 held-out 5,000문장, clean best)
 CER **2.05%**, exact 47.4% (문장 전체·띄어쓰기 포함 완전일치 기준)
 
-## 모델 파일 (Release v2.0 자산)
+## 모델 파일
+
+가중치 파일은 아직 공개 릴리스로 올리지 않았습니다. 필요하면 bagdoeon827@gmail.com으로 요청해 주세요.
+
 | 파일 | 설명 |
 |---|---|
 | `jamo2hangul_clean_v2.pt` | clean 모델 (정상 입력 최적), fp16 inference용 |
